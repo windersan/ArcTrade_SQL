@@ -9,6 +9,13 @@ CREATE TABLE Users
 	UserType nvarchar(50)
 )
 
+CREATE TABLE Files
+(
+	Id int identity primary key,
+	Data varbinary(MAX),
+	ContentType nvarchar(50)
+)
+
 CREATE TABLE Applications
 (
 	Id int identity primary key,
@@ -26,22 +33,21 @@ CREATE TABLE Applications
 	Zip int,	
 )
 
-CREATE TABLE Files
-(
-	Id int identity primary key,
-	Data varbinary(MAX),
-	ContentType nvarchar(50)
-)
 
-INSERT INTO Users (username, password, usertype) VALUES ('test','test', 'applicant')
-INSERT INTO Users (username, password, usertype) VALUES ('arctrade','arctrade', 'manager')
-INSERT INTO Applications (userid) VALUES (1)
+INSERT INTO Users (username, password, usertype, timestamp) VALUES ('test','test', 'applicant', CURRENT_TIMESTAMP)
+INSERT INTO Users (username, password, usertype, timestamp) VALUES ('arctrade','arctrade', 'manager', CURRENT_TIMESTAMP)
+INSERT INTO Files ([data]) VALUES (0x)
+INSERT INTO Applications 
+	(userid, dateapplied, resumeid, salary, firstname, lastname, gender, job, address, city, state, zip) 
+	VALUES 
+	(1, CURRENT_TIMESTAMP, 1, 40000, 'andres','castro','male','software engineer','4145 porte de merano','san diego','ca','92122')
+
+
+
 
 
 select * from users
 select * from applications
 select * from files 
-
-
 
 
