@@ -34,14 +34,16 @@ CREATE TABLE Applications
 )
 
 
-INSERT INTO Users (username, password, usertype, timestamp) VALUES ('test','test', 'applicant', CURRENT_TIMESTAMP)
 INSERT INTO Users (username, password, usertype, timestamp) VALUES ('arctrade','arctrade', 'manager', CURRENT_TIMESTAMP)
+INSERT INTO Users (username, password, usertype, timestamp) VALUES ('test','test', 'applicant', CURRENT_TIMESTAMP)
+INSERT INTO Users (username, password, usertype, timestamp) VALUES ('test2','test2', 'applicant', CURRENT_TIMESTAMP)
+
 INSERT INTO Files ([data]) VALUES (0x)
+
 INSERT INTO Applications 
 	(userid, dateapplied, resumeid, salary, firstname, lastname, gender, job, address, city, state, zip) 
 	VALUES 
-	(1, CURRENT_TIMESTAMP, 1, 40000, 'andres','castro','male','software engineer','4145 porte de merano','san diego','ca','92122')
-
+	(2, CURRENT_TIMESTAMP, 1, 40000, 'Andres','Castro','Male','Software Engineer','4145 Porte de Merano','San Diego','CA','92122')
 
 
 
@@ -49,5 +51,4 @@ INSERT INTO Applications
 select * from users
 select * from applications
 select * from files 
-
 
